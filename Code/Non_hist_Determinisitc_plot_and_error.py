@@ -26,11 +26,12 @@ plt.rcParams.update({'font.size': 16,
 #                     "text.usetex": True,                # use LaTeX to write all text
                      })
 
+
 import os
 current_dirs_parent = os.path.dirname(os.getcwd())
-fold_save = current_dirs_parent+'/Results/Hist_plots'
+fold_save = current_dirs_parent+'/Results/Non_Hist_plots'
 
-fold_res = current_dirs_parent+'/Results/Hist_results'
+fold_res = current_dirs_parent+'/Results/Non_Hist_results'
 
 is_plot_extrap = 1
 is_plot_interp = 1
@@ -74,14 +75,14 @@ if is_plot_interp == 1:
             ax1 = plt.subplot(4, 2, ii+1)
             plt.xticks(fontsize=22)
             plt.yticks(fontsize=22)
-            plt.plot(t_2dt[2:], exact_out, 'r-', label = "True")
-            plt.plot(t_2dt[2:], NN_int[:,ii], 'b--', label = "Prediction")
+            plt.plot(t_2dt, exact_out, 'r-', label = "True")
+            plt.plot(t_2dt, NN_int[:,ii], 'b--', label = "Prediction")
             plt.xlabel('$t$ (ATM days)',fontsize=26)
             plt.ylabel(r'Closure for $X_'+str(ii+1)+'$',fontsize=26)
             if kk==0 and jj==0:
                 plt.legend(ncol=2, frameon=False, prop={'size': 20}, bbox_to_anchor=(1.4,-3.8))
               
-    plt.savefig(fold_save+'/interp_hist_det_closure.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)
+    plt.savefig(fold_save+'/interp_non_hist_det_closure.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)
     plt.close()
     
     plt.figure(figsize=(18,24))
@@ -95,13 +96,13 @@ if is_plot_interp == 1:
             plt.yticks(fontsize=22)
             plt.plot(t, X_int[:,ii], 'r-', label = "True")
             plt.plot(t, Xpred_int[:,ii], 'b--', label = "Prediction")
-            plt.plot(t, X_train[:,ii], 'k--', label = "Training data")
+            plt.plot(t, X_train[:,ii], 'k--', label = "Training data") # 'ro'
             plt.xlabel('$t$ (ATM days)',fontsize=26)
             plt.ylabel(r'$X_'+str(ii+1)+'(t)$',fontsize=26)
             if kk==0 and jj==0:
                 plt.legend(ncol=3, frameon=False, prop={'size': 20}, bbox_to_anchor=(1.8,-3.8))
                 
-    plt.savefig(fold_save+'/interp_hist_det_X.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1) 
+    plt.savefig(fold_save+'/interp_non_hist_det_X.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1) 
     plt.close()
                 
 ####### Extrap ######
@@ -120,14 +121,14 @@ if is_plot_extrap == 1:
             ax1 = plt.subplot(4, 2, ii+1)
             plt.xticks(fontsize=22)
             plt.yticks(fontsize=22)
-            plt.plot(t_2dt_ext[2:], exact_out, 'r-', label = "True")
-            plt.plot(t_2dt_ext[2:], NN_ext[:,ii], 'b--', label = "Prediction")
+            plt.plot(t_2dt_ext, exact_out, 'r-', label = "True")
+            plt.plot(t_2dt_ext, NN_ext[:,ii], 'b--', label = "Prediction")
             plt.xlabel('$t$ (ATM days)',fontsize=26)
             plt.ylabel(r'Closure for $X_'+str(ii+1)+'$',fontsize=26)
             if kk==0 and jj==0:
                 plt.legend(ncol=3, frameon=False, prop={'size': 20}, bbox_to_anchor=(1.4,-3.8))
                     
-    plt.savefig(fold_save+'/hist_det_closure.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)   
+    plt.savefig(fold_save+'/non_hist_det_closure.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)   
     plt.close()
     
     plt.figure(figsize=(18,24))
@@ -145,9 +146,10 @@ if is_plot_extrap == 1:
             plt.xlabel('$t$ (ATM days)',fontsize=26)
             plt.ylabel(r'$X_'+str(ii+1)+'(t)$',fontsize=26)
             if kk==0 and jj==0:
+#                    plt.legend(frameon=False, prop={'size': 20}, bbox_to_anchor=(x,y))
                 plt.legend(ncol=3, frameon=False, prop={'size': 20}, bbox_to_anchor=(1.5,-3.8))
                 
-    plt.savefig(fold_save+'/hist_det_X.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)   
+    plt.savefig(fold_save+'/non_hist_det_X.png', dpi = 300, bbox_inches='tight',pad_inches = 0.1)   
     plt.close()
                 
 err_int = np.linalg.norm(X_int-Xpred_int) / np.linalg.norm(X_int)
