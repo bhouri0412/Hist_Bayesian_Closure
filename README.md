@@ -11,7 +11,7 @@ Physical parameterizations are used as representations of unresolved subgrid pro
     @article{Bhouri2022HistParam,
     title={History-Based, Bayesian, Closure for Stochastic Parameterization: Application to Lorenz '96},
     author={Bhouri, Mohamed Aziz  and Gentine, Pierre},
-    journal={arXiv preprint arXiv:},
-    doi = {https://doi.org/},
+    journal={arXiv preprint arXiv:2210.14488},
+    doi = {https://doi.org/10.48550/arXiv.2210.14488},
     year={2022}
   }
