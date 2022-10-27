@@ -5,19 +5,19 @@ Hist_Bayes_Closure Code Guide
 ################ Code and Results #################
 ###################################################
 
-The folder "code" contains the implementation of the Bayesian and deterministic history- and non-history-based parameterization for Loren '96 model as detailed in the paper "History-Based, Bayesian, Closure for Stochastic Parameterization: Application to Lorenz '96". Below is a list of the code scripts.
+The folder "code" contains the implementation of the Bayesian and deterministic history- and non-history-based parameterization for Lorenz '96 model as detailed in the paper "History-Based, Bayesian, Closure for Stochastic Parameterization: Application to Lorenz '96". Below is a list of the code scripts.
 
-1(a)- The code "Hist_Bayes.py" contains the implementation of the Bayesian history-based parameterization for Loren '96 model and saves the simulation results in folder "Results/Hist_results". 
+1(a)- The code "Hist_Bayes.py" contains the implementation of the Bayesian history-based parameterization for Lorenz '96 model and saves the simulation results in folder "Results/Hist_results". 
 
-1(b)- The code "Hist_Deterministic.py" contains the implementation of the deterministic history-based parameterization for Loren '96 model and saves the simulation results in folder "Results/Hist_results". 
+1(b)- The code "Hist_Deterministic.py" contains the implementation of the deterministic history-based parameterization for Lorenz '96 model and saves the simulation results in folder "Results/Hist_results". 
 
 1(c)- Both "Hist_Bayes.py" and "Hist_Deterministic.py" call the code "integrate_L96_2t_with_coupling.py" to generate the "true" data, and the codes "forward_pass.py" and "stepper.py" to compute the parameterization and the time-stepping of the parameterized model respectively. They also call "integrate_L96_2t_with_NN.npy" to simulate a trajectory of the parameterized model.
 
 1(d)- The codes "Hist_Determinisitc_plot_and_error.py" and "Hist_Bayes_plot_and_error.py" outputs the errors and generates the plots using the simulation results saved in folder "Results/Hist_results" for the deterministic and Bayesian history-based models respectively. The plots are saved in the folder "Results/Hist_plots".
 
-2(a)- The code "Non_hist_Bayes.py" contains the implementation of the Bayesian non-history-based parameterization for Loren '96 model and saves the simulation results in folder "Results/Non_Hist_results". 
+2(a)- The code "Non_hist_Bayes.py" contains the implementation of the Bayesian non-history-based parameterization for Lorenz '96 model and saves the simulation results in folder "Results/Non_Hist_results". 
 
-2(b)- The code "Non_hist_Deterministic.py" contains the implementation of the deterministic non-history-based parameterization for Loren '96 model and saves the simulation results in folder "Results/Non_Hist_results".
+2(b)- The code "Non_hist_Deterministic.py" contains the implementation of the deterministic non-history-based parameterization for Lorenz '96 model and saves the simulation results in folder "Results/Non_Hist_results".
 
 2(c)- Both "Non_hist_Bayes.py" and "Non_hist_Deterministic.py" call the code "integrate_L96_2t_with_coupling.py" to generate the "true" data. They call the code "Non_hist_time_integration.npy" to access the functions "forward_pass" and "stepper" needed to to compute the parameterization and the time-stepping of the parameterized model respectively, and also the code "integrate_L96_2t_with_NN" needed to simulate a trajectory of the parameterized model.
 
